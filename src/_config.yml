@@ -2,7 +2,7 @@
 # Build config
 # =============================================
 
-root:             _gh_pages
+root:             hipstersmoothie
 dest:             <%= site.root %>
 assets:           <%= site.dest %>/assets
 
@@ -16,7 +16,7 @@ layouts:          <%= site.templates %>/layouts
 layout:           default.hbs
 
 # Extensions
-helpers:          
+helpers:
   - <%= site.templates %>/helpers/*.js
   - handlebars-helper-br
 
@@ -36,11 +36,11 @@ components:       <%= site.theme %>/components
 
 # Assemble metadata.
 assemble:
-  latest:         0.4.33  # change to <%= pkg.version %>
+  latest:         0.1  # change to <%= pkg.version %>
 
 # GitHub
-username:         assemble
-name:             assemble # change to <%= pkg.name %>
+username:         hipstersmoothie
+name:             hipstersmoothie # change to <%= pkg.name %>
 download:
   source:         <%= pkg.homepage %>/archive/master.zip
 
@@ -49,9 +49,9 @@ download:
 # Site metadata
 # =============================================
 
-brand:            ASSEMBLE
-title:            BOILERPLATE
-lead:             The most awe inspiring static site boilerplate in Northern Kentucky.
+brand:            Andrew Lisowski
+title:            HipsterSmoothie
+lead:             Andrew Lisowski's Online Resume
 
 version:          <%= pkg.version %>
 description:      <%= pkg.description %>

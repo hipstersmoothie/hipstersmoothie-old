@@ -1,9 +1,9 @@
 /*
  * src
- * 
+ *
  * hipstersmoothie
  * https://github.com/alisowski/src
- * 
+ *
  * Copyright (c) 2014
  * Licensed under the MIT license.
  */
@@ -49,7 +49,6 @@ module.exports = function(grunt) {
         flatten: true,
         production: false,
         assets: '<%= site.assets %>',
-        postprocess: require('pretty'),
 
         // Metadata
         pkg: '<%= pkg %>',
@@ -112,13 +111,21 @@ module.exports = function(grunt) {
     },
 
     watch: {
-      all: {
-        files: ['<%= jshint.all %>'],
-        tasks: ['jshint', 'nodeunit']
+      options: {
+         livereload: true
       },
       site: {
-        files: ['Gruntfile.js', '<%= less.options.paths %>/*.less', 'templates/**/*.hbs'],
-        tasks: ['design']
+        files: ['Gruntfile.js', '<%= less.options.paths %>/*.less', 'templates/**/*.hbs', 'templates/*.hbs' ],
+        tasks: ['newer:clean', 'newer:assemble', 'newer:less:site']
+      }
+   },
+
+     connect: {
+      dev: {
+        options: {
+          port: 8000,
+          base: './hipstersmoothie/'
+        }
       }
     }
   });
@@ -132,6 +139,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-sync-pkg');
   grunt.loadNpmTasks('assemble-less');
   grunt.loadNpmTasks('assemble');
+  grunt.loadNpmTasks('grunt-newer');
+  grunt.loadNpmTasks('grunt-contrib-connect');
+
 
   // Run this task once, then delete it as well as all of the "once" targets.
   grunt.registerTask('setup', ['copy:once', 'clean:once']);
