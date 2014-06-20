@@ -51,7 +51,7 @@ download:
 
 brand:            Andrew Lisowski
 title:            HipsterSmoothie
-lead:             Andrew Lisowski's Online Resume
+lead:             I'm Andrew Lisowski, a 21-year-old software developer from San Diego.
 
 version:          <%= pkg.version %>
 description:      <%= pkg.description %>
@@ -67,7 +67,7 @@ url:
   ghpages:        https://<%= site.username %>.github.io/<%= pkg.name %>/
 
   # Site
-  domain:         http://assemble.io/
+  domain:         http://hipstersmoothie.com/
   about:          <%= site.url.domain %>/about/
   blog:           <%= site.url.domain %>/blog/
 

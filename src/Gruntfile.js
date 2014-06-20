@@ -98,7 +98,7 @@ module.exports = function(grunt) {
           {expand: true, cwd: '<%= bootstrap %>/less', src: ['{util*,mix*}.less'], dest: '<%= site.theme %>/utils'},
           {expand: true, cwd: '<%= bootstrap %>/less', src: ['variables.less'], dest: '<%= site.theme %>/'},
           {expand: true, cwd: 'node_modules/showup', src: ['showup.js'], dest: '<%= site.assets %>/js/'},
-          {expand: true, cwd: 'node_modules/showup', src: ['showup.css'], dest: '<%= site.theme %>/components/', ext: '.less'},
+          {expand: true, cwd: 'node_modules/showup', src: ['showup.css'], dest: '<%= site.theme %>/components/', ext: '.less'}, 
         ]
       },
       // Keep this target as a getting started point
@@ -116,7 +116,7 @@ module.exports = function(grunt) {
       },
       site: {
         files: ['Gruntfile.js', '<%= less.options.paths %>/*.less', 'templates/**/*.hbs', 'templates/*.hbs' ],
-        tasks: ['newer:clean', 'newer:assemble', 'newer:less:site']
+        tasks: ['assemble']
       }
    },
 
@@ -152,11 +152,5 @@ module.exports = function(grunt) {
 
   grunt.registerTask('docs', ['readme', 'sync']);
 
-  // Delete this conditional logic after first run.
-  if(!grunt.file.exists('_gh_pages_/assets/fonts') && !grunt.file.exists('_gh_pages_/assets/js')) {
-    grunt.registerTask('default', ['setup', 'clean', 'jshint', 'copy:assets', 'assemble', 'less', 'docs']);
-  } else {
-    // Use this going forward.
-    grunt.registerTask('default', ['clean', 'jshint', 'copy:assets', 'assemble', 'less', 'docs']);
-  }
+  grunt.registerTask('default', ['clean', 'jshint', 'copy:assets', 'assemble', 'less', 'docs']);
 };

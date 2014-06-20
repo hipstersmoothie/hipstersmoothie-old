@@ -1,8 +1,16 @@
-<div class="bs-header" id="content">
-  <div class="container">
-    <h1>{{title}}</h1>
+<section class="bs-header pane" id="content">
+   <br>
+   <br>
+   <div class="row">
+      <img src="{{assets}}/face.jpg" alt="My Face" class="img-circle col-md-5">
+      <div class="col-md-6 col-md-offset-1">
+         <br>
+         <br>
+         <br>
+         <h1>{{title}}</h1>
 
-    {{! this 'default' helper uses the first variable if it exists, otherwise the second}}
-    <p>{{default lead description}}</p>
-  </div>
-</div>
+         {{! this 'default' helper uses the first variable if it exists, otherwise the second}}
+         <p class="blurb">{{default lead description}}</p>
+      </div>
+   </div>
+</section>
