@@ -98,7 +98,7 @@ module.exports = function(grunt) {
           {expand: true, cwd: '<%= bootstrap %>/less', src: ['{util*,mix*}.less'], dest: '<%= site.theme %>/utils'},
           {expand: true, cwd: '<%= bootstrap %>/less', src: ['variables.less'], dest: '<%= site.theme %>/'},
           {expand: true, cwd: 'node_modules/showup', src: ['showup.js'], dest: '<%= site.assets %>/js/'},
-          {expand: true, cwd: 'node_modules/showup', src: ['showup.css'], dest: '<%= site.theme %>/components/', ext: '.less'}, 
+          {expand: true, cwd: 'node_modules/showup', src: ['showup.css'], dest: '<%= site.theme %>/components/', ext: '.less'},
         ]
       },
       // Keep this target as a getting started point
@@ -148,7 +148,7 @@ module.exports = function(grunt) {
 
   // Build HTML, compile LESS and watch for changes. You must first run "bower install"
   // or install Bootstrap to the "vendor" directory before running this command.
-  grunt.registerTask('design', ['clean', 'assemble', 'less:site', 'watch:site']);
+  grunt.registerTask('design', ['clean', 'assemble', 'less', 'watch']);
 
   grunt.registerTask('docs', ['readme', 'sync']);
 
