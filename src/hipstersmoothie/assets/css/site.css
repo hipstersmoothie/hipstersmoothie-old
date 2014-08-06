@@ -1,0 +1,627 @@
+@import "bootstrap.css";
+/*
+ * Topography, yo!
+ *
+ * Apply the map background via base64 and relevant colors where we need 'em.
+ */
+.bs-docs-home,
+.bs-header {
+  color: #EAC3C7;
+  background-color: #F84848;
+}
+/*
+ * Homepage
+ *
+ * Tweaks to the custom homepage and the masthead (main jumbotron).
+ */
+/* Masthead (headings and download button) */
+.bs-masthead {
+  position: relative;
+  padding: 30px 15px;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+}
+.bs-masthead h1 {
+  font-size: 50px;
+  line-height: 1;
+  color: #fff;
+}
+.bs-masthead .btn-outline-inverse {
+  margin: 10px;
+}
+/* Links to project-level content like the repo, Expo, etc */
+.bs-masthead-links {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  padding: 0 15px;
+  list-style: none;
+  text-align: center;
+}
+.bs-masthead-links li {
+  display: inline;
+}
+.bs-masthead-links li + li {
+  margin-left: 20px;
+}
+.bs-masthead-links a {
+  color: #fff;
+}
+@media (min-width: 768px) {
+  .bs-masthead {
+    text-align: left;
+    padding-top: 140px;
+    padding-bottom: 140px;
+  }
+  .bs-masthead h1 {
+    font-size: 100px;
+  }
+  .bs-masthead .lead {
+    margin-right: 25%;
+    font-size: 30px;
+  }
+  .bs-masthead .btn-outline-inverse {
+    width: auto;
+    margin: 20px 5px 20px 0;
+    padding: 18px 24px;
+    font-size: 21px;
+  }
+  .bs-masthead-links {
+    padding: 0;
+    text-align: left;
+  }
+}
+/*
+ * Page headers
+ *
+ * Jumbotron-esque headers at the top of every page that's not the homepage.
+ */
+/* Page headers */
+.bs-header {
+  padding: 30px 15px 40px;
+  /* side padding builds on .container 15px, so 30px */
+  font-size: 16px;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+}
+.bs-header h1 {
+  color: #fff;
+}
+.bs-header p {
+  font-weight: 300;
+  line-height: 1.5;
+}
+.bs-header .container {
+  position: relative;
+}
+@media (min-width: 768px) {
+  .bs-header {
+    font-size: 21px;
+    text-align: left;
+  }
+  .bs-header h1 {
+    font-size: 60px;
+    line-height: 1;
+  }
+}
+@media (min-width: 992px) {
+  .bs-header h1 {
+    margin-right: 380px;
+  }
+}
+/*
+ * Code snippets
+ *
+ * Generated via Pygments and Jekyll, these are snippets of HTML, CSS, and JS.
+ */
+.highlight {
+  padding: 9px 14px;
+  margin-bottom: 14px;
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
+  border-radius: 4px;
+}
+.highlight pre {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  background-color: transparent;
+  border: 0;
+  white-space: nowrap;
+}
+.highlight pre code {
+  font-size: inherit;
+  color: #333;
+  /* Effectively the base text color */
+}
+.highlight pre .lineno {
+  display: inline-block;
+  width: 22px;
+  padding-right: 5px;
+  margin-right: 10px;
+  text-align: right;
+  color: #bebec5;
+}
+/*
+ * Glyphicons
+ *
+ * Special styles for displaying the icons and their classes in the docs.
+ */
+.bs-glyphicons {
+  margin: 0 -19px 20px -16px;
+  overflow: hidden;
+}
+.bs-glyphicons-list {
+  padding-left: 0;
+  list-style: none;
+}
+.bs-glyphicons li {
+  float: left;
+  width: 25%;
+  height: 115px;
+  padding: 10px;
+  margin: 0 -1px -1px 0;
+  font-size: 10px;
+  line-height: 1.4;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+.bs-glyphicons .glyphicon {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+.bs-glyphicons .glyphicon-class {
+  display: block;
+  text-align: center;
+  word-wrap: break-word;
+  /* Help out IE10+ with class names */
+}
+.bs-glyphicons li:hover {
+  background-color: rgba(86, 61, 124, 0.1);
+}
+@media (min-width: 768px) {
+  .bs-glyphicons {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .bs-glyphicons li {
+    width: 12.5%;
+    font-size: 12px;
+  }
+}
+/*
+ * Main navigation
+ *
+ * Turn the `.navbar` at the top of the docs purple.
+ */
+.bs-docs-nav {
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15);
+  background-color: #563d7c;
+  border-color: #463265;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+.bs-docs-nav .navbar-collapse {
+  border-color: #463265;
+}
+.bs-docs-nav .navbar-brand {
+  color: #fff;
+}
+.bs-docs-nav .navbar-nav > li > a {
+  color: #cdbfe3;
+}
+.bs-docs-nav .navbar-nav > li > a:hover {
+  color: #fff;
+}
+.bs-docs-nav .navbar-nav > .active > a,
+.bs-docs-nav .navbar-nav > .active > a:hover {
+  color: #fff;
+  background-color: #463265;
+}
+.bs-docs-nav .navbar-toggle {
+  border-color: #563d7c;
+}
+.bs-docs-nav .navbar-toggle:hover {
+  background-color: #463265;
+  border-color: #463265;
+}
+pre {
+  background: #F8F8FF;
+}
+.btn-popover .glyphicon-question-sign {
+  margin-left: 5px;
+  font-size: 14px;
+}
+.popover .glyphicon {
+  font-size: 12px;
+  margin-left: 5px;
+  color: #428bca;
+}
+.blue {
+  background-color: #7ab6d6;
+}
+.yellow {
+  background-color: #FFD969;
+}
+.purp {
+  color: white;
+  background-color: #8888DD;
+}
+.portfolioBlock {
+  height: auto;
+  background: rgba(0, 0, 0, 0.25);
+  color: white;
+  margin-bottom: 15px;
+}
+.portfolioImage {
+  padding: 20px;
+}
+.btn-white {
+  color: #fff;
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+.btn-white:hover,
+.btn-white:focus,
+.btn-white:active,
+.btn-white.active,
+.open > .dropdown-toggle.btn-white {
+  color: #fff;
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+.btn-white:active,
+.btn-white.active,
+.open > .dropdown-toggle.btn-white {
+  background-image: none;
+}
+.btn-white.disabled,
+.btn-white[disabled],
+fieldset[disabled] .btn-white,
+.btn-white.disabled:hover,
+.btn-white[disabled]:hover,
+fieldset[disabled] .btn-white:hover,
+.btn-white.disabled:focus,
+.btn-white[disabled]:focus,
+fieldset[disabled] .btn-white:focus,
+.btn-white.disabled:active,
+.btn-white[disabled]:active,
+fieldset[disabled] .btn-white:active,
+.btn-white.disabled.active,
+.btn-white[disabled].active,
+fieldset[disabled] .btn-white.active {
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+.btn-white .badge {
+  color: #ffffff;
+  background-color: #fff;
+}
+.content {
+  padding-top: 50px;
+}
+.page-header {
+  border-bottom: none;
+}
+.pane {
+  height: auto;
+  padding-bottom: 40px;
+}
+.paneTitle {
+  width: 200px;
+  height: 89px;
+  padding-left: 30px;
+  padding-top: 23px;
+  background: rgba(0, 0, 0, 0.25);
+  color: white;
+  margin-left: 19%;
+}
+.dark {
+  background: rgba(0, 0, 0, 0.25);
+  color: white;
+  margin-bottom: 15px;
+}
+.blackText {
+  text-decoration: none;
+  color: black;
+}
+#resume {
+  color: white;
+}
+.contactSection .centered {
+  margin: auto;
+  max-width: 700px;
+}
+.contactSection .contactList li,
+.contactSection .contactList {
+  display: inline;
+  float: none;
+  padding-right: 5px;
+  padding-top: 5px;
+}
+.contactSection .contactList li .twitter,
+.contactSection .contactList .twitter {
+  margin: auto;
+}
+.contactSection .contactList li .facebook,
+.contactSection .contactList .facebook {
+  float: right;
+}
+.contactList li,
+.contactList {
+  display: inline;
+  list-style-type: none;
+  float: left;
+  padding-right: 5px;
+  padding-top: 5px;
+}
+.btn {
+  margin-bottom: 10px;
+}
+.nav-icon {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  height: 35px;
+}
+.socialLink {
+  width: 121px;
+  height: 120px;
+}
+.centered {
+  margin: auto;
+  width: 1000px;
+}
+.talk {
+  font-size: 100px;
+  line-height: 350px;
+  height: 269px;
+}
+.buffer {
+  height: 230px;
+}
+@media screen and (max-width: 1354px) {
+  .socialLink {
+    width: 80px;
+    height: 80px;
+    background-size: 80px 80px;
+  }
+  .centered {
+    max-width: 500px;
+  }
+}
+@media screen and (max-width: 940px) {
+  .socialLink {
+    width: 61px;
+    height: 61px;
+    background-size: 61px 61px;
+  }
+  .centered {
+    max-width: 357px;
+  }
+  .contactList li {
+    padding-right: 3px;
+  }
+}
+.facebook {
+  background-image: url('BW/largeFB.png');
+}
+.facebook:hover {
+  background-image: url('COLOR/largeFB.png');
+}
+.soundcloud {
+  background-image: url('BW/largeSC.png');
+}
+.soundcloud:hover {
+  background-image: url('COLOR/largeSC.png');
+}
+.twitter {
+  background-image: url('BW/largeTWIT.png');
+}
+.twitter:hover {
+  background-image: url('COLOR/largeTWIT.png');
+}
+.github {
+  background-image: url('BW/largeCAT.png');
+}
+.github:hover {
+  background-image: url('COLOR/largeCAT.png');
+}
+.linkedin {
+  background-image: url('BW/largeIN.png');
+}
+.linkedin:hover {
+  background-image: url('COLOR/largeIN.png');
+}
+.mail:hover {
+  -webkit-transform: rotateZ(40deg);
+  -moz-transform: rotateZ(40deg);
+  -o-transform: rotateZ(40deg);
+  -ms-transform: rotateZ(40deg);
+  transform: rotateZ(40deg);
+}
+.smoothie {
+  background-image: url('COLOR/normalsmoothie.png');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 380px 380px;
+  height: 400px;
+  min-width: 400px;
+  margin-top: 30px;
+}
+.smoothie:hover {
+  background-image: url('COLOR/tiltsmoothie.png');
+}
+@media screen and (max-width: 992px) {
+  .pic {
+    width: 100%;
+  }
+}
+.tags {
+  list-style: none;
+}
+.tags li,
+.tags a {
+  float: left;
+  height: 35px;
+  margin-top: 15px;
+  line-height: 35px;
+  position: relative;
+  font-size: 25px;
+}
+.tags a {
+  margin-left: 20px;
+  padding: 0 10px 0 12px;
+  background: #0089e0;
+  color: #fff;
+  text-decoration: none;
+  -moz-border-radius-bottomright: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  -moz-border-radius-topright: 4px;
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.tags a:before {
+  content: "";
+  float: left;
+  position: absolute;
+  top: 0;
+  left: -12px;
+  width: 0;
+  height: 0;
+  border-color: transparent #0089e0 transparent transparent;
+  border-style: solid;
+  border-width: 18px 12px 17px 0;
+}
+.tags a:after {
+  content: "";
+  position: absolute;
+  top: 17px;
+  left: -3px;
+  float: left;
+  width: 4px;
+  height: 4px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background: #fff;
+  -moz-box-shadow: -1px -1px 2px #004977;
+  -webkit-box-shadow: -1px -1px 2px #004977;
+  box-shadow: -1px -1px 2px #004977;
+}
+.tags a:hover {
+  background: #555;
+}
+.tags a:hover:before {
+  border-color: transparent #555 transparent transparent;
+}
+/*
+ * Responsive tests
+ *
+ * Generate a set of tests to show the responsive utilities in action.
+ */
+/* Responsive (scrollable) doc tables */
+.table-responsive .highlight pre {
+  white-space: normal;
+}
+/* Utility classes table  */
+.bs-table th small,
+.responsive-utilities th small {
+  display: block;
+  font-weight: normal;
+  color: #999;
+}
+.responsive-utilities tbody th {
+  font-weight: normal;
+}
+.responsive-utilities td {
+  text-align: center;
+}
+.responsive-utilities td.is-visible {
+  color: #468847;
+  background-color: #dff0d8 !important;
+}
+.responsive-utilities td.is-hidden {
+  color: #ccc;
+  background-color: #f9f9f9 !important;
+}
+/* Responsive tests */
+.responsive-utilities-test {
+  margin-top: 5px;
+}
+.responsive-utilities-test .col-xs-6 {
+  margin-bottom: 10px;
+}
+.responsive-utilities-test span {
+  padding: 15px 10px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.1;
+  text-align: center;
+  border-radius: 4px;
+}
+.visible-on .col-xs-6 .hidden-xs,
+.visible-on .col-xs-6 .hidden-sm,
+.visible-on .col-xs-6 .hidden-md,
+.visible-on .col-xs-6 .hidden-lg,
+.hidden-on .col-xs-6 .hidden-xs,
+.hidden-on .col-xs-6 .hidden-sm,
+.hidden-on .col-xs-6 .hidden-md,
+.hidden-on .col-xs-6 .hidden-lg {
+  color: #999;
+  border: 1px solid #ddd;
+}
+.visible-on .col-xs-6 .visible-xs,
+.visible-on .col-xs-6 .visible-sm,
+.visible-on .col-xs-6 .visible-md,
+.visible-on .col-xs-6 .visible-lg,
+.hidden-on .col-xs-6 .visible-xs,
+.hidden-on .col-xs-6 .visible-sm,
+.hidden-on .col-xs-6 .visible-md,
+.hidden-on .col-xs-6 .visible-lg {
+  color: #468847;
+  background-color: #dff0d8;
+  border: 1px solid #d6e9c6;
+}
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.pull-right {
+  float: right !important;
+}
+.pull-left {
+  float: left !important;
+}
+.hide {
+  display: none !important;
+}
+.show {
+  display: block !important;
+}
+.invisible {
+  visibility: hidden;
+}
+.text-hide {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+.affix {
+  position: fixed;
+}
