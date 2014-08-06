@@ -11,11 +11,6 @@
 module.exports = function(grunt) {
 'use strict';
 
-  // Delete after first run
-  if(!grunt.file.exists('vendor/bootstrap')) {
-    grunt.fail.fatal('>> Please run "bower install" before continuing.');
-  }
-
   // Project configuration.
   grunt.initConfig({
 
@@ -28,9 +23,7 @@ module.exports = function(grunt) {
 
     // Before generating any new files, remove files from previous build.
     clean: {
-      example: ['<%= site.dest %>/*.html'],
-      // Delete this target after first run!!!
-      once: ['<%= site.theme %>/bootstrap/{var*,mix*,util*}.less']
+      default: ['<%= site.dest %>/*.html']
     },
 
 
@@ -42,6 +35,15 @@ module.exports = function(grunt) {
       }
     },
 
+    copy: {
+      assets: {
+        files: [
+          {expand: true, cwd: '<%= bootstrap %>/css', src: ['bootstrap.css'], dest: '<%= site.assets %>/css/'},
+          {expand: true, cwd: '<%= bootstrap %>/fonts', src: ['*.*'], dest: '<%= site.assets %>/fonts/'},
+          {expand: true, cwd: '<%= bootstrap %>/js',    src: ['bootstrap.js'], dest: '<%= site.assets %>/js/'}
+        ]
+      }
+    },
 
     // Build HTML from templates and data
     assemble: {
@@ -76,7 +78,6 @@ module.exports = function(grunt) {
         vendor: 'vendor',
         paths: [
           '<%= site.theme %>',
-          '<%= site.theme %>/bootstrap',
           '<%= site.theme %>/components',
           '<%= site.theme %>/utils'
         ],
@@ -86,36 +87,13 @@ module.exports = function(grunt) {
         dest: '<%= site.assets %>/css/site.css'
       }
     },
-
-
-    // Copy Bootstrap's assets to site assets
-    copy: {
-      // Delete this target after first run!!! Afterwards you'll need to
-      // decide on a strategy for adding javascripts, fonts etc.
-      once: {
-        files: [
-          {expand: true, cwd: '<%= bootstrap %>/less', src: ['*', '!{var*,mix*,util*}'], dest: '<%= site.theme %>/bootstrap/'},
-          {expand: true, cwd: '<%= bootstrap %>/less', src: ['{util*,mix*}.less'], dest: '<%= site.theme %>/utils'},
-          {expand: true, cwd: '<%= bootstrap %>/less', src: ['variables.less'], dest: '<%= site.theme %>/'},
-          {expand: true, cwd: 'node_modules/showup', src: ['showup.js'], dest: '<%= site.assets %>/js/'},
-          {expand: true, cwd: 'node_modules/showup', src: ['showup.css'], dest: '<%= site.theme %>/components/', ext: '.less'},
-        ]
-      },
-      // Keep this target as a getting started point
-      assets: {
-        files: [
-          {expand: true, cwd: '<%= bootstrap %>/dist/fonts', src: ['*.*'], dest: '<%= site.assets %>/fonts/'},
-          {expand: true, cwd: '<%= bootstrap %>/dist/js',    src: ['*.*'], dest: '<%= site.assets %>/js/'},
-        ]
-      }
-    },
-
+    
     watch: {
       options: {
          livereload: true
       },
       site: {
-        files: ['Gruntfile.js', '<%= less.options.paths %>/*.less', 'templates/**/*.hbs', 'templates/*.hbs' ],
+        files: ['Gruntfile.js', '<%= less.options.paths %>/*.less', 'templates/**/*.hbs', 'templates/*.hbs', 'theme/**/*.less', 'theme/*.less' ],
         tasks: ['assemble']
       }
    },
@@ -129,7 +107,6 @@ module.exports = function(grunt) {
       }
     }
   });
-
   // Load npm plugins to provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
@@ -141,7 +118,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('assemble');
   grunt.loadNpmTasks('grunt-newer');
   grunt.loadNpmTasks('grunt-contrib-connect');
-
+  grunt.loadNpmTasks('grunt-contrib-less');
 
   // Run this task once, then delete it as well as all of the "once" targets.
   grunt.registerTask('setup', ['copy:once', 'clean:once']);

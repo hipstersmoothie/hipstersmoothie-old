@@ -1,18 +1,16 @@
-<section class="bs-header pane" id="content">
-   <br>
-   <br>
-   <div class="row">
-      <img src="{{assets}}/face.jpg" alt="My Face" class="img-circle col-xs-12 col-sm-4 col-sm-offset-1">
-      <div class="col-sm-6">
-         <br>
-         <br>
-         <h1>{{title}}</h1>
+<section class="row bs-header pane" id="content">
+  <img src="{{assets}}/face.jpg" alt="My Face" class="img-circle col-xs-12 col-sm-4 col-sm-offset-1">
+  <div class="col-sm-6">
+     <br>
+     <br>
+     <h1>{{title}}</h1>
 
-         {{! this 'default' helper uses the first variable if it exists, otherwise the second}}
-         <p class="blurb">{{default lead description}}</p>
+     {{! this 'default' helper uses the first variable if it exists, otherwise the second}}
+     <p class="blurb">{{default lead description}}</p>
 
-         <h2>Get to know me:</h2>
-         <ul class="contactList">
+     <h2>Get to know me:</h2>
+     <div class="centered row">
+         <ul class="contactList col-xs-12">
              <li>
                  <a href="https://www.facebook.com/alisowski">
                      <div class="facebook socialLink"></div>
@@ -39,6 +37,6 @@
                  </a>
              </li>
          </ul>
-      </div>
-   </div>
+     </div>
+  </div>
 </section>
