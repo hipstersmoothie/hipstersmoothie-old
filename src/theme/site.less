@@ -209,16 +209,16 @@ fieldset[disabled] .btn-white.active {
     background-size: 61px 122px;
 }
 
+.socialLink:hover {
+  background-position: 0 -61px;
+}
+
 .centered {
     width: 357px;
 }
 
 .contactList li {
     padding-right: 3px;
-}
-
-*.socialLink:hover {
-  background-position: 0 -61px;
 }
 
 @media screen and (min-width: 940px) {
@@ -267,7 +267,24 @@ fieldset[disabled] .btn-white.active {
   }
 }
 
-@media screen and (max-width: 344px) {
+.smoothie {
+   background-image: url('COLOR/normalsmoothie.png');
+   background-repeat:no-repeat;
+   background-position: top center;
+   background-size: 380px 760px;
+   height: 380px;
+   width: 380px;
+   margin-top: 30px;
+   margin: auto;
+}
+
+@media screen and (min-width: 401px) {
+  .smoothie:hover {
+     background-position: center -380px;
+  }
+}
+
+@media screen and (max-width: 400px) {
   .centered {
     width: 100%;
   }
@@ -279,8 +296,12 @@ fieldset[disabled] .btn-white.active {
     width: 280px;
   }
 
-  .smoothie:hover {
+  .smoothie:active {
     background-position: center -280px;
+  }
+
+  .socialLink {
+    background-position: 0 -61px;
   }
 }
 
@@ -313,21 +334,6 @@ fieldset[disabled] .btn-white.active {
   -o-transform:rotateZ(40deg);
   -ms-transform:rotateZ(40deg);
   transform:rotateZ(40deg);
-}
-
-.smoothie {
-   background-image: url('COLOR/normalsmoothie.png');
-   background-repeat:no-repeat;
-   background-position: top center;
-   background-size: 380px 760px;
-   height: 380px;
-   width: 380px;
-   margin-top: 30px;
-   margin: auto;
-}
-
-.smoothie:hover {
-   background-position: center -380px;
 }
 
 @media screen and (max-width: 992px) {
