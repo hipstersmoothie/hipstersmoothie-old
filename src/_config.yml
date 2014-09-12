@@ -13,6 +13,7 @@ data:             data/*.{json,yml}
 templates:        templates
 includes:         <%= site.templates %>/includes/*.hbs
 layouts:          <%= site.templates %>/layouts
+content:          content
 layout:           default.hbs
 
 # Extensions
@@ -68,7 +69,6 @@ url:
 
   # Site
   domain:         http://hipstersmoothie.com/
-  about:          <%= site.url.domain %>/about/
   blog:           <%= site.url.domain %>/blog/
 
 

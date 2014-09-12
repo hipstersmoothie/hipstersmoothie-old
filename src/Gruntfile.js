@@ -48,6 +48,10 @@ module.exports = function(grunt) {
     // Build HTML from templates and data
     assemble: {
       options: {
+        layout: '<%= site.layout %>',
+        layoutdir: '<%= site.layouts %>',
+        partials: '<%= site.includes %>',
+
         flatten: true,
         production: false,
         assets: '<%= site.assets %>',
@@ -56,18 +60,22 @@ module.exports = function(grunt) {
         pkg: '<%= pkg %>',
         site: '<%= site %>',
         data: ['<%= site.data %>'],
-
-        // Templates
-        partials: '<%= site.includes %>',
-        layoutdir: '<%= site.layouts %>',
-        layout: '<%= site.layout %>',
-
+                
         // Extensions
         helpers: '<%= site.helpers %>',
-        plugins: '<%= site.plugins %>'
+        plugins: '<%= site.plugins %>',
+
+        collections: [{
+          name: 'post',
+          sortby: 'posted',
+          sortorder: 'descending'
+        }]
       },
-      example: {
-        files: {'<%= site.dest %>/': ['<%= site.templates %>/*.hbs']}
+      posts: {
+        files: {'<%= site.dest %>/': ['<%= site.templates %>/*.hbs', 
+                                      '<%= site.content %>/*.hbs',
+                                      '<%= site.content %>/blog/*',
+                                      '<%= site.content %>/_pages/*.hbs']}
       }
     },
 

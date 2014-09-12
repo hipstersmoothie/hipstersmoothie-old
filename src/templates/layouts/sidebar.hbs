@@ -1,23 +1,35 @@
----
-layout: default.hbs
----
-<div class="row">
-  <div class="col-md-3">
-    <div class="bs-sidebar hidden-print" role="complementary">
-      <ul class="nav bs-sidenav">
-        {{#is basename "about" }}
-          {{> nav-about }}
-        {{/is}}
-        {{#is basename "markdown" }}
-          {{> nav-markdown }}
-        {{/is}}
-      </ul>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{> head }}
+  </head>
+  <body>
+    {{#if production}}
+      {{> tags }} {{! Google Tags. See https://www.google.com/tagmanager/}}
+    {{/if}}
+
+    <a class="sr-only" href="#content">Skip to main content</a>
+    <!-- Navigation component -->
+    {{> nav-main }}
+
+    <!-- Subhead component -->
+    <div class="content container-fluid">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="bs-sidebar hidden-print" role="complementary">
+            <ul class="nav bs-sidenav">
+              {{> nav-markdown }}
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-9" role="main">
+          <div class="wordcount">
+            {{> body }}
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="col-md-9" role="main">
-    {{! wrapped with 'wordcount' for wordcount plugin }}
-    <div class="wordcount">
-      {{> body }}
-    </div>
-  </div>
-</div>
+    <!-- JS and analytics only. -->
+    {{> javascripts }}
+  </body>
+</html>

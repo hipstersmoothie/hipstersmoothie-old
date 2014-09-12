@@ -1,0 +1,15 @@
+---
+layout: sidebar.hbs
+
+title: Yup.
+posts: ['content/blog/*.md']
+---
+
+{{#withSort post 'data.posted'}}
+  {{#each this.pages }}
+  <div class="card">
+  	<h1>{{this.data.title}}</h1>
+  	{{page}}
+	</div>
+  {{/each}}
+{{/withSort}}
